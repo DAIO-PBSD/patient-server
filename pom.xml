@@ -93,6 +93,7 @@
 				</dependencies>
 			</plugin>
 		</plugins>
+		<finalName>patient-server-exe</finalName>
 	</build>
 
 </project>

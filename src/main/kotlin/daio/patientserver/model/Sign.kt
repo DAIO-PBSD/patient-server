@@ -1,13 +1,15 @@
-package daio.diagnosticmicroservice.model
+package daio.patientserver.model
 
-import java.time.LocalDateTime
+import com.fasterxml.jackson.annotation.JsonBackReference
+import javax.persistence.*
 
+@Entity
+@IdClass(SignKey::class)
 class Sign (
-    var type: String,
-    var timeEmitted: LocalDateTime,
-    var patient: String,
-    var danger: Int, // 0 -> none, 1 -> moderate, 2 -> high
-    var value: Double
-) {
-    override fun toString() = "$patient: [$type] $value ($timeEmitted)"
-}
+        @Id var name: String,
+        @Id @ManyToOne @JsonBackReference(value="signs") var patient: Patient = Patient(),
+        var extremeLow: Double = 0.0,
+        var low: Double = 0.0,
+        var high: Double = 0.0,
+        var extremeHigh: Double = 0.0
+)

@@ -1,10 +1,10 @@
-package daio.diagnosticmicroservice.model
+package daio.patientserver.model
 
 import java.io.Serializable
 import java.time.LocalDateTime
 
-class SignPersistedKey (
-        var type: String = "",
+class ReadKey (
+        var signName: String = "",
         var timeEmitted: LocalDateTime = LocalDateTime.now(),
-        var patient: String = ""
+        var patientID: String = ""
 ): Serializable
